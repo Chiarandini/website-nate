@@ -2,19 +2,23 @@ import { Course, TeachingClip } from 'src/app/interfaces/teaching.model';
 
 // Videos are 1080p H.264 with the index at the front (so playback starts
 // before the file finishes downloading). Source and render scripts live with
-// the course files, in mat223/ch7-manim/, not in this repo.
+// the course files, in mat223/ch7-manim/ and mat223/ch8-manim/, not in this repo.
 const MAT223_CH7 = 'assets/teaching/mat223/ch7';
+const MAT223_CH8 = 'assets/teaching/mat223/ch8';
 
-function ch7(code: string, file: string, title: string, blurb: string, seconds: number): TeachingClip {
-  return {
+function clipsIn(dir: string) {
+  return (code: string, file: string, title: string, blurb: string, seconds: number): TeachingClip => ({
     code,
     title,
     blurb,
     seconds,
-    src: `${MAT223_CH7}/videos/${file}.mp4`,
-    poster: `${MAT223_CH7}/posters/${file}.jpg`,
-  };
+    src: `${dir}/videos/${file}.mp4`,
+    poster: `${dir}/posters/${file}.jpg`,
+  });
 }
+
+const ch7 = clipsIn(MAT223_CH7);
+const ch8 = clipsIn(MAT223_CH8);
 
 export const COURSES: Course[] = [
   {
@@ -24,8 +28,51 @@ export const COURSES: Course[] = [
     term: 'Fall 2026',
     role: 'Instructor',
     institution: 'University of Toronto',
-    blurb: 'Animations for lecture: how a linear map changes area and volume, and why that number is the determinant.',
+    blurb: 'Animations for lecture: determinants as area and volume, and coordinates and change of basis.',
     chapters: [
+      {
+        title: 'Chapter 8: Coordinate Systems and Change of Basis',
+        blurb:
+          'A basis is a coordinate system: it draws its own grid and gives every vector an address. ' +
+          'The clips follow one example: the basis B = {(2, 1), (−1, 1)} from the 3Blue1Brown pre-reading, ' +
+          'and the vector x = (4, 5), whose B-coordinates are (3, 2).',
+        groups: [
+          {
+            title: 'Coordinates',
+            clips: [
+              ch8('C18', 'C18_GridFromBasis', 'A basis draws a grid',
+                'The axes are the spans of the basis vectors. Sliding them gives every other grid line.', 38),
+              ch8('C20', 'C20_TwoAddresses', 'One vector, two addresses',
+                'The same arrow is 4e₁ + 5e₂ and 3b₁ + 2b₂. Only its description changes.', 38),
+              ch8('C21', 'C21_UniqueAddress', 'Exactly one address',
+                'Too many vectors give many addresses, too few give none. A basis gives exactly one.', 52),
+            ],
+          },
+          {
+            title: 'Change of basis matrices',
+            clips: [
+              ch8('C22', 'C22_BtoE', 'From B-coordinates to standard coordinates',
+                '3 steps along b₁ and 2 along b₂ is a matrix times a vector (Theorem 8.5).', 32),
+              ch8('C23', 'C23_GridView', 'Why the matrix looks backwards',
+                'As a map it moves the standard grid onto the B-grid, so it turns B-coordinates into standard ones.', 31),
+              ch8('C24', 'C24_GoingBack', 'Going back',
+                'Straighten the B-grid to see the plane the way B sees it. The inverse matrix translates back.', 35),
+              ch8('C25', 'C25_TwoBases', 'Two nonstandard bases',
+                'Measure each bᵢ with the C-grid to get the columns of the change of basis matrix (Theorem 8.8).', 59),
+            ],
+          },
+          {
+            title: 'Lecture Activities 8.2 and 8.5',
+            blurb: 'These use the CAP\'s numbers and show the answers, so play them after students try the activity.',
+            clips: [
+              ch8('C19', 'C19_LA82', 'Lecture Activity 8.2',
+                'Walk both grids: u = w and v = z, and 3e₁ + 6e₂ = 5b₁ + b₂.', 42),
+              ch8('C26', 'C26_LA85', 'Lecture Activity 8.5',
+                'The plane V in ℝ³ with its C-grid. Flattening V with the C-ruler gives the 2 × 2 matrices.', 79),
+            ],
+          },
+        ],
+      },
       {
         title: 'Chapter 7: Determinants',
         blurb:
