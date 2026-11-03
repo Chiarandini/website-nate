@@ -72,7 +72,7 @@ export const COURSES: Course[] = [
               ch8('C28', 'C28_TwoViews', 'Two views of one plane',
                 'The plane as B sees it next to our plane, linked live by the change of basis matrix.', 53),
               ch8('C29', 'C29_ColumnRule', 'The column rule',
-                'Column j is the j-th input vector, written in the output basis. One rule for every case, and a quick check.', 51),
+                'Column j is the j-th input vector, written in the output basis. One rule for every case, and a quick check.', 52),
               ch8('C31', 'C31_Mistakes', 'Spot the mistake',
                 'Three tempting wrong answers, each tested on x and plotted where it lands. Then three ways to check yours.', 79),
               ch8('C32', 'C32_RowReduce', 'Row reducing [C | B]',
