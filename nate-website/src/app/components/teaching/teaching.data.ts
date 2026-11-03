@@ -62,11 +62,31 @@ export const COURSES: Course[] = [
             ],
           },
           {
-            title: 'Lecture Activities 8.2 and 8.5',
+            title: 'Change of basis in detail',
+            blurb: 'How a combination of the b\'s turns into standard coordinates, one rule that builds every ' +
+              'change of basis matrix, and how to compute them.',
+            sheet: { src: `${MAT223_CH8}/change-of-basis-one-page.pdf`, label: 'Everything on one page (PDF)' },
+            clips: [
+              ch8('C27', 'C27_Unpacking', 'Unpacking a B-walk',
+                'Each b-step is a walk in e-steps. Sorting the pieces turns 3b₁ + 2b₂ into 4e₁ + 5e₂, and that sorting is the matrix product.', 52),
+              ch8('C28', 'C28_TwoViews', 'Two views of one plane',
+                'The plane as B sees it next to our plane, linked live by the change of basis matrix.', 53),
+              ch8('C29', 'C29_ColumnRule', 'The column rule',
+                'Column j is the j-th input vector, written in the output basis. One rule for every case, and a quick check.', 51),
+              ch8('C31', 'C31_Mistakes', 'Spot the mistake',
+                'Three tempting wrong answers, each tested on x and plotted where it lands. Then three ways to check yours.', 79),
+              ch8('C32', 'C32_RowReduce', 'Row reducing [C | B]',
+                'Row reduce [c₁ c₂ | b₁ b₂] once and the right block is the change of basis matrix, also inside a plane in ℝ³.', 49),
+            ],
+          },
+          {
+            title: 'Lecture Activities 8.2, 8.4 and 8.5',
             blurb: 'These use the CAP\'s numbers and show the answers, so play them after students try the activity.',
             clips: [
               ch8('C19', 'C19_LA82', 'Lecture Activity 8.2',
                 'Walk both grids: u = w and v = z, and 3e₁ + 6e₂ = 5b₁ + b₂.', 42),
+              ch8('C30', 'C30_LA84', 'Lecture Activity 8.4',
+                'P1 by unpacking the b\'s, P2 with every step, P3 by row reduction, and what the columns of the inverse mean.', 96),
               ch8('C26', 'C26_LA85', 'Lecture Activity 8.5',
                 'The plane V in ℝ³ with its C-grid. Flattening V with the C-ruler gives the 2 × 2 matrices.', 79),
             ],
