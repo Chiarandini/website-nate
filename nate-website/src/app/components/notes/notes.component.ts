@@ -9,11 +9,6 @@ import { Note, Notes } from 'src/app/interfaces/notes.model';
 // that moved are rewritten by LEGACY_PDF_REDIRECTS in pdf-viewer.component.ts.
 export const notesArray: Note[]= [
   {
-    name: "Galois Cohomology",
-    desc: "These are my current work in progress notes on Galois Cohomology which aim to be inspired by Neukirch and Kumar Murty. They are rapidly changing are mostly here for my reference \"on the go\"",
-    link: "././assets/pdfs/notes/EYNTKA_galois_cohomology.pdf"
-  },
-  {
     name: "Toric Varieties",
     desc: "a few properties of Toric varieties. Very rough work, I hope to fill these out more soon. Toric varietie sare great as a large example of very simple varieties/schemes that are dual to lattices.",
     link: "././assets/pdfs/notes/EYNTKA_toric_geometry.pdf"
